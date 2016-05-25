@@ -5,6 +5,7 @@ game = games.ConnectFour()
 state = game.initial
 
 dificulty = 0
+deep = 4
 while (dificulty == 0):
     dif = raw_input("Select dificulty: 1 (Facil), 2 (Medium), 3 (Dificil): ")
     dificulty = int(str(dif).strip())
@@ -14,6 +15,11 @@ while (dificulty == 0):
         h = heuristic.h1
     elif (dificulty == 3):
         h = heuristic.h2
+        deep = raw_input("Select depth : 2 or 4 :")
+        depth = int(str(deep).strip())
+        if deep == 2 : deep = 2
+        else: deep =4
+
     else :
         print "Dificulty not valid ,please try again ..."
         dificulty = 0
@@ -21,7 +27,7 @@ while (dificulty == 0):
 
 
 
-primo = raw_input("Who start first: 1 (Machine  or 2 (Person) ) ")
+primo = raw_input("Who start first: 1 (Machine  or 2 (Person) : ")
 first = int(str(primo).strip())
 
 if(first == 1):
@@ -55,7 +61,7 @@ while True:
         #move = games.alphabeta_full_search(state, game)
 
 
-        move = games.alphabeta_search(state, game, d = 4, eval_fn = h)
+        move = games.alphabeta_search(state, game, d = deep, eval_fn = h)
 
         state = game.make_move(move, state)
         player = 'O'
