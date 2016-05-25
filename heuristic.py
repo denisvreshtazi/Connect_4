@@ -56,9 +56,11 @@ def k_in_row(board, (m,n), player, (delta_x, delta_y) ):
     enemy = plenemy(player)
     x, y = m, n
     n = 0
+    k = 0
     while (board.get((x, y)) != enemy )  and x < 8 and y < 7  :
         if(board.get((x, y)) == player):
             n += 4
+            k += 1
         else:
             n+=2
         x, y = x + delta_x, y + delta_y
@@ -66,11 +68,16 @@ def k_in_row(board, (m,n), player, (delta_x, delta_y) ):
     while (board.get((x, y)) != enemy )  and x > 0 and y > 0 :
         if (board.get((x, y)) == player):
             n += 4
+            k += 1
         else:
             n += 2
         x, y = x - delta_x, y - delta_y
-    n-=4
-    return n
+    n -= 4
+    k -= 1
+    if k == 4:
+        return n*1000
+    else: 
+        return n
 
 
 
