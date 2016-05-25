@@ -53,6 +53,8 @@ while True:
         print "Thinking..."
         #move = games.minimax_decision(state, game)
         #move = games.alphabeta_full_search(state, game)
+
+
         move = games.alphabeta_search(state, game, d = 4, eval_fn = h)
 
         state = game.make_move(move, state)
