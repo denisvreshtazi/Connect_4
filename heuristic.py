@@ -75,7 +75,7 @@ def k_in_row(board, (m,n), player, (delta_x, delta_y) ):
     n -= 4
     k -= 1
     if k == 4:
-        return n*1000
+        return n + 1000
     else: 
         return n
 
