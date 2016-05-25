@@ -22,10 +22,11 @@ def h2(state, player):
         return state.utility * 1000
 
     for (x,y) in legal_moves(state):
-        if x == 4:
+        
+       """ if x == 4:
             h -= 20
         elif x == 3 or x == 5:
-            h -= 10
+            h -= 10 """
 
         h += k_in_row(state.board, (x,y), player, (0,1) )
         h += k_in_row(state.board, (x,y), player, (1,0) )
